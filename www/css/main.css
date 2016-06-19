@@ -113,6 +113,10 @@ iframe {
   a:active {
     color: #3071a9;
   }
+  
+  .button:focus {
+    outline:0;
+  }
 
   .fullscreen {
     width: 100vw;
