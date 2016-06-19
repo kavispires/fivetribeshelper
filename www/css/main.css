@@ -129,6 +129,7 @@ iframe {
     border-radius: 5px;
     -webkit-border-radius: 10px;
     background: #b09d78;
+    border: 0;
   }
 
   .btn-2 {
@@ -141,7 +142,7 @@ iframe {
   }
 
   .btn-negative {
-    background: #af7989;
+    background: #F15959;
   }
 
 /* ==========================================================================
@@ -471,8 +472,22 @@ iframe {
   }
 }
 
-.solo-cell-prev {
-  background: #998544;
+.solo-cell-yazid {
+  background: #F159BA;
+}
+
+.solo-cell-player {
+  background: #06918D;
+}
+
+.solo-hint {
+  width: 100vw;
+  height: 5vh;
+  position: fixed;
+  bottom: 0;
+  background: #F15959;
+  color: #fff;
+  z-index: 15;
 }
 
 .screen-2 .icon {
