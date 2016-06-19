@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta id="format-detection" content="telephone=no" />
+    <meta id="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta id="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>Five Tribes: Helper</title>
+
+    <script type="text/javascript" src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Taviraj:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/board-games.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="icon" href="icon.png">
+</head>
+<body>
+
+    <div class="fullscreen">
+        <header>
+            <img src="img/logo.svg" alt="Logo Five Tribes">
+        </header><!-- /header -->
+
+        <div class="screen screen-1" id="scorer">
+
+            <div class="col col-categories" id="categories">
+                <div class="col-header"></div>
+                <div class="col-cell" id="alert-coins">
+                    <img src="img/category-coins.svg" alt="Scorer - Coins">
+                </div>
+                <div class="col-cell" id="alert-viziers">
+                    <img src="img/category-viziers.svg" alt="Scorer - Viziers">
+                </div>
+                <div class="col-cell" id="alert-artisans">
+                    <img src="img/category-artisans.svg" alt="Scorer - Astisans">
+                </div>
+                <div class="col-cell" id="alert-elders">
+                    <img src="img/category-elders.svg" alt="Scorer - Elders">
+                </div>
+                <div class="col-cell" id="alert-djinns">
+                    <img src="img/category-djinns.svg" alt="Scorer - Djinns">
+                </div>
+                <div class="col-cell" id="alert-tiles">
+                    <img src="img/category-tiles.svg" alt="Scorer - Tiles">
+                </div>
+                <div class="col-cell" id="alert-oasis">
+                    <img src="img/category-oasis.svg" alt="Scorer - Oasis">
+                </div>
+                <div class="col-cell" id="alert-villages">
+                    <img src="img/category-villages.svg" alt="Scorer - Villages">
+                </div>
+                <div class="col-cell" id="alert-preciousitems">
+                    <img src="img/category-preciousitems.svg" alt="Scorer - Precious Items">
+                </div>
+                <div class="col-cell" id="alert-merchandise">
+                    <img src="img/category-merchandise.svg" alt="Scorer - Merchansise">
+                </div>
+                <div class="col-cell col-total">
+                    Total
+                </div>
+            </div><!-- /col /categories-->
+
+            <div class="col col-blue" id="player-blue">
+                <div class="col-header">
+                    <img src="img/player-blue.svg" alt="Blue Player">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-coins">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-viziers">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-artisans">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-elders">
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-blue djinns" id="blue-djinns">+</button>
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-tiles">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-oasis">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-villages">
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-blue items" id="blue-items">+</button>
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-blue merch" id="blue-merch">+</button>
+                </div>
+                <div class="col-cell t-blue">
+                    <div class="total" id="blue-total">000</div>
+                </div>
+            </div><!-- /col-blue -->
+
+            <div class="col col-pink" id="player-pink">
+                <div class="col-header">
+                    <img src="img/player-pink.svg" alt="pink Player">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-coins">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-viziers">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-artisans">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-elders">
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-pink djinns" id="pink-djinns">+</button>
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-tiles">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-oasis">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-villages">
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-pink items" id="pink-items">+</button>
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-pink merch" id="pink-merch">+</button>
+                </div>
+                <div class="col-cell t-pink">
+                    <div class="total" id="pink-total">000</div>
+                </div>
+            </div><!-- /col-pink -->
+
+            <div class="col col-blac" id="player-black">
+                <div class="col-header">
+                    <img src="img/player-black.svg" alt="black Player">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-black" min="0" placeholder="0" id="blac-coins">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-black" min="0" placeholder="0" id="blac-viziers">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-black" min="0" placeholder="0" id="blac-artisans">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-black" min="0" placeholder="0" id="blac-elders">
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-black djinns" id="blac-djinns">+</button>
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-black" min="0" placeholder="0" id="blac-tiles">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-black" min="0" placeholder="0" id="blac-oasis">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-black" min="0" placeholder="0" id="blac-villages">
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-black items" id="blac-items">+</button>
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-black merch" id="blac-merch">+</button>
+                </div>
+                <div class="col-cell t-black">
+                    <div class="total" id="blac-total">000</div>
+                </div>
+            </div><!-- /col-blac -->
+
+            <div class="col col-oran" id="player-orange">
+                <div class="col-header">
+                    <img src="img/player-orange.svg" alt="Orange Player">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-coins">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-viziers">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-artisans">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-elders">
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-orange djinns" id="oran-djinns">+</button>
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-tiles">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-oasis">
+                </div>
+                <div class="col-cell">
+                    <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-villages">
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-orange items" id="oran-items">+</button>
+                </div>
+                <div class="col-cell">
+                    <button class="add-button p-orange merch" id="oran-merch">+</button>
+                </div>
+                <div class="col-cell t-orange">
+                    <div class="total" id="oran-total">000</div>
+                </div>
+            </div><!-- /col-oran -->
+
+            <div class="nav">
+                <button type="button" class="btn btn-alt navigation" id="clear">Clear</button>
+                <button type="button" class="btn navigation" id="calculate">Score</button>
+            </div>
+
+            <div class="popup popup-overlay">
+                <div class="col col-categories"></div>
+                <div class="col col-blue"></div>
+                <div class="col col-pink"></div>
+                <div class="col col-blac"></div>
+                <div class="col col-oran"></div>
+            </div><!-- /popup-overlay -->
+            
+            <div class="popup" id="popup-djinns">
+                <div class="col col-categories" id="categories-djinn">
+                    <div class="col-header"></div>
+                    <div class="col-cell clear-djinns" id="clear-jaa">
+                        <img src="img/djinns-jaa.svg" alt="Djinn: Jaafar">  
+                    </div>
+                    <div class="col-cell clear-djinns" id="clear-sha">
+                        <img src="img/djinns-sha.svg" alt="Djinn: Shamhat">  
+                    </div>
+                    <div class="col-cell clear-djinns" id="clear-hau">
+                        <img src="img/djinns-hau.svg" alt="Djinn: Haurvatat">  
+                    </div>
+                    <div class="col-cell clear-djinns" id="clear-geb">
+                        <img src="img/djinns-geb.svg" alt="Djinn: Geb">  
+                    </div>
+                    <div class="col-cell clear-djinns" id="clear-pta">
+                        <img src="img/djinns-pta.svg" alt="Djinn: Ptah">  
+                    </div>
+                    <div class="col-cell">
+                        <img src="img/djinns-total.svg" alt="Djinns Points">  
+                    </div>
+                    <div class="col-empty"></div>
+                    <div class="col-cell">
+                        <img src="img/thieves-total.svg" alt="Thives Points"> 
+                    </div>
+                </div><!-- /col /categories-->
+
+                <div class="col col-blue" id="player-blue-djinn">
+                    <div class="col-header">
+                        <img src="img/player-blue.svg" alt="Blue Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-jaa p-blue" id="jaa-blue">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-sha p-blue" id="sha-blue">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-hau p-blue" id="hau-blue">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-geb p-blue" id="geb-blue">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-pta p-blue" id="pta-blue">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-totaldjinns">
+                    </div>
+                    <div class="col-empty"></div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-thieves">
+                    </div>
+                </div><!-- /col /col-blue -->
+
+                <div class="col col-pink" id="player-pink-djinn">
+                    <div class="col-header">
+                        <img src="img/player-pink.svg" alt="Pink Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-jaa p-pink" id="jaa-pink">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-sha p-pink" id="sha-pink">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-hau p-pink" id="hau-pink">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-geb p-pink" id="geb-pink">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-pta p-pink" id="pta-pink">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-totaldjinns">
+                    </div>
+                    <div class="col-empty"></div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-thieves">
+                    </div>
+                </div><!-- /col /col-pink -->
+
+                <div class="col col-blac" id="player-black-djinn">
+                    <div class="col-header">
+                        <img src="img/player-black.svg" alt="Black Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-jaa p-blac" id="jaa-blac">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-sha p-blac" id="sha-blac">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-hau p-blac" id="hau-blac">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-geb p-blac" id="geb-blac">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-pta p-blac" id="pta-blac">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blac" min="0" placeholder="0" id="blac-totaldjinns">
+                    </div>
+                    <div class="col-empty"></div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blac" min="0" placeholder="0" id="blac-thieves">
+                    </div>
+                </div><!-- /col /col-blac -->
+
+                <div class="col col-oran" id="player-orange-djinn">
+                    <div class="col-header">
+                        <img src="img/player-orange.svg" alt="Orange Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-jaa p-oran" id="jaa-oran">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-sha p-oran" id="sha-oran">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-hau p-oran" id="hau-oran">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-geb p-oran" id="geb-oran">
+                    </div>
+                    <div class="col-cell">
+                        <input type="checkbox" class="djinn-pta p-oran" id="pta-oran">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-oran" min="0" placeholder="0" id="oran-totaldjinns">
+                    </div>
+                    <div class="col-empty"></div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-oran" min="0" placeholder="0" id="oran-thieves">
+                    </div>
+                </div><!-- /col /col-oran -->
+
+                <div class="nav nav-djinns">
+                    <button type="button" class="btn btn-alt navigation" id="clear-djinns">Reset</button>
+                    <button type="button" class="btn navigation" id="confirm-djinns">Done</button>
+                </div> 
+            </div><!-- /popup-djinns -->
+
+            <div class="popup" id="popup-items">
+                <div class="col col-categories" id="categories-items">
+                    <div class="col-header"></div>
+                    <div class="col-cell">
+                        <img src="img/items-jewelry.svg" alt="Jewelry Quantity">  
+                    </div>
+                    <div class="col-cell">
+                        <img src="img/items-chest.svg" alt="Treasure Chest Quantity">  
+                    </div>
+                    <div class="col-cell">
+                        <img src="img/items-crown.svg" alt="Crown Quantity">  
+                    </div>
+                </div><!-- /col /categories-->
+                <div class="col col-blue" id="player-blue-items">
+                    <div class="col-header">
+                        <img src="img/player-blue.svg" alt="Blue Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-item-1"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-item-2"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-item-3"> 
+                    </div>
+                </div><!-- /col /col-blue -->
+                <div class="col col-pink" id="player-pink-items">
+                    <div class="col-header">
+                        <img src="img/player-pink.svg" alt="Pink Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-item-1"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-item-2"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-item-3"> 
+                    </div>
+                </div><!-- /col /col-pink -->
+                <div class="col col-blac" id="player-black-items">
+                    <div class="col-header">
+                        <img src="img/player-black.svg" alt="Black Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-item-1"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-item-2"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-item-3"> 
+                    </div>
+                </div><!-- /col /col-blac -->
+                <div class="col col-oran" id="player-orange-items">
+                    <div class="col-header">
+                        <img src="img/player-orange.svg" alt="Orange Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-item-1"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-item-2"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-item-3"> 
+                    </div>
+                </div><!-- /col /col-oran -->
+                <div class="nav nav-items">
+                    <button type="button" class="btn btn-alt navigation" id="clear-items">Reset</button>
+                    <button type="button" class="btn navigation" id="confirm-items">Done</button>
+                </div>
+            </div><!-- /popup /popup-items -->
+
+            <div class="popup" id="popup-merch">
+                <div class="col col-categories" id="categories-merch">
+                    <div class="col-header"></div>
+                    <div class="col-cell">
+                        <img src="img/merch-fish.svg" alt="Fish Quantity">  
+                    </div>
+                    <div class="col-cell">
+                        <img src="img/merch-wheat.svg" alt="Wheat Quantity">  
+                    </div>
+                    <div class="col-cell">
+                        <img src="img/merch-pottery.svg" alt="Pottery Quantity">  
+                    </div>
+                    <div class="col-cell">
+                        <img src="img/merch-spice.svg" alt="Spice Quantity">  
+                    </div>
+                    <div class="col-cell">
+                        <img src="img/merch-papyrus.svg" alt="Papyrus Quantity">  
+                    </div>
+                    <div class="col-cell">
+                        <img src="img/merch-fabric.svg" alt="Fabric Quantity">  
+                    </div>
+                    <div class="col-cell">
+                        <img src="img/merch-ivory.svg" alt="Ivory Quantity">  
+                    </div>
+                    <div class="col-cell">
+                        <img src="img/merch-gems.svg" alt="Gems Quantity">  
+                    </div>
+                    <div class="col-cell">
+                        <img src="img/merch-gold.svg" alt="Gold Quantity">  
+                    </div>
+                </div><!-- /col /categories-->
+                <div class="col col-blue" id="player-blue-merch">
+                    <div class="col-header">
+                        <img src="img/player-blue.svg" alt="Blue Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-merch-1"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-merch-2"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-merch-3"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-merch-4"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-merch-5"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-merch-6"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-merch-7"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-merch-8"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-blue" min="0" placeholder="0" id="blue-merch-9"> 
+                    </div>
+                </div><!-- /col /col-blue -->
+                <div class="col col-pink" id="player-pink-merch">
+                    <div class="col-header">
+                        <img src="img/player-pink.svg" alt="Pink Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-merch-1"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-merch-2"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-merch-3"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-merch-4"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-merch-5"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-merch-6"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-merch-7"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-merch-8"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-pink" min="0" placeholder="0" id="pink-merch-9"> 
+                    </div>
+                </div><!-- /col /col-pink -->
+                <div class="col col-blac" id="player-black-merch">
+                    <div class="col-header">
+                        <img src="img/player-black.svg" alt="Black Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-merch-1"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-merch-2"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-merch-3"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-merch-4"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-merch-5"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-merch-6"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-merch-7"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-merch-8"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-black" min="0" placeholder="0" id="blac-merch-9"> 
+                    </div>
+                </div><!-- /col /col-blac -->
+                <div class="col col-oran" id="player-orange-merch">
+                    <div class="col-header">
+                        <img src="img/player-orange.svg" alt="Orange Player">
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-merch-1"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-merch-2"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-merch-3"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-merch-4"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-merch-5"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-merch-6"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-merch-7"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-merch-8"> 
+                    </div>
+                    <div class="col-cell">
+                        <input type="number" class="number p-orange" min="0" placeholder="0" id="oran-merch-9"> 
+                    </div>
+                </div><!-- /col /col-oran -->
+                <div class="nav nav-merch">
+                    <button type="button" class="btn btn-alt navigation" id="clear-merch">Clear</button>
+                    <button type="button" class="btn navigation" id="confirm-merch">Score</button>
+                </div>
+            </div><!-- /popup-merch -->
+
+
+        </div><!-- /screen -->
+        <div class="screen screen-2" id="solitaire">
+
+            <h1>Solitaire <span class="icon bgicon-info-circle" id="instructions"></span></h1>
+            <div class="instructions">
+                <p>In this solo variant of Five Tribes, you will be confronting the Sultan Yazid who plays as a dummy player.</p>
+                <h3>SET UP</h3>
+                <ul>
+                    <li>✦ Take the 11 blue Camels for yourself.</li>
+                    <li>✦ Place the 11 pink Camels next to the board. These are Yazid’s Camels.</li>
+                    <li>✦ Take 25 Gold Coins. (30 for the Expansion)</li>
+                    <li>✦ Do not use the Bid Order & Turn Order Track.</li>
+                    <li>The rest of the set-up remains unchanged.</li>
+                </ul>
+                <h3>GAME TURN</h3>
+                <p>Press Next Tile for Yazid's turn. He always goes first. He takes control of that tile, capturing all its meeples and placing his camel.<br>If you don’t want Yazid to clear the targeted Tile(s), you can outbid him in order to play before him.</p>
+                <h3>MEEPLE EFFECT</h3>
+                <ul>
+                    <li><strong>Tent:</strong> For the first Red tile that Yazid takes control, use its tent and score it. You pay him.</li>
+                    <li><span class="icon bgicon-meeple yellow"></span> <strong>Viziers:</strong> Place it next to the board. <span class="important">At the end of the game you lose if Yazid's Council of Viziers is larger than yours.</span></li>
+                    <li><span class="icon bgicon-meeple purple"></span> <strong>Artisans:</strong> Same effect as the Viziers.</li>
+                    <li><span class="icon bgicon-meeple grey"></span> <strong>Elders:</strong> Place it next to the board. At the end of Yazid's tun, if he has at least 1 Elder and 1 Fakir (or 2 Elders), he buys the first available Djinn. <span class="important">If he owns 6 djinns, the game is over</span></li>
+                    <li><span class="icon bgicon-meeple green"></span> <strong>Merchants:</strong> Return them to the bag and discard as many Resource card, beginning at the start of the line, except Fakirs.</li>
+                    <li><span class="icon bgicon-meeple blue"></span> <strong>Builders:</strong> Do the Builders scoring action, but you pay Yazid. You lose if you run out of money.</li>
+                    <li><span class="icon bgicon-meeple red"></span> <strong>Assassins:</strong> Place them next to the board. <span class="important">You lose if Yazid has more than 7 Assassins.</span></li>
+                </ul>
+            </div><!-- /instruction -->
+            <button class="btn btn-alt" id="restart">Restart</button>
+            <div class="solo-start">
+               <button class="btn btn-primary solo-start-btn" id="base">Base</button>
+               <button class="btn btn-2 btn-primary solo-start-btn"  id="expansion">Base+Expansion</button>
+           </div>
+
+           <div id="solo-game">
+            <h3>Outbid Cost: <span id="cost">0</span></h3>
+            <div id="solo-grid"></div>
+            <button class="btn btn-2 btn-negative" id="outbid">Prevent Yazid</button>
+            <button class="btn btn-2 btn-primary" id="nexttile">Next Tile</button>
+        </div>
+        <button class="btn btn-primary" id="solo-done">Done</button>
+        
+    </div><!-- /screen -->
+
+
+    <div class="screen screen-3" id="rules">
+        <h1>Coming Soon</h1>
+    </div><!-- /screen -->
+
+
+    <footer>
+        <a class="bar-item" id="goto-scorer" data-transition="fade">
+            <span class="icon bgicon-trophy"></span>
+            <span class="bar-label">Scorer</span>
+        </a>
+        <a class="bar-item" id="goto-solitaire" data-transition="fade">
+            <span class="icon bgicon-solo"></span>
+            <span class="bar-label">Solitaire</span>
+        </a>
+        <a class="bar-item" id="goto-rules" data-transition="fade">
+            <span class="icon bgicon-rules"></span>
+            <span class="bar-label">Rules</span>
+        </a>
+    </footer><!-- footer -->
+</div> <!-- /fullscreen -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/vendor/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
+    app.initialize();
+</script>
+</body>
+</html>
