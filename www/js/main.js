@@ -739,12 +739,15 @@ $('#btn-right').on('click', function() {
             console.log('Confirm: ',confirm);   
         //If CONTINUE is clicked   
         } else if (confirm) {
-            //If Active is not on allTiles
-            if(allTiles.indexOf(active) != -1){
-                ///Add Yazid Class to Tile & Remove tile from clicable options
-                $('#cl-' + active).addClass('solo-cell-yazid').removeClass('solo-all');
-                //Remove number from allTiles array
-                removeA(allTiles, active);
+            //Without Preventing
+            if(!preventYazid) {
+                //If Active is not on allTiles
+                if(allTiles.indexOf(active) != -1){
+                    ///Add Yazid Class to Tile & Remove tile from clicable options
+                    $('#cl-' + active).addClass('solo-cell-yazid').removeClass('solo-all');
+                    //Remove number from allTiles array
+                    removeA(allTiles, active);
+                }
             }
             //Remove Blinking Class
             $('#cl-' + active).removeClass('solo-cell-active');
@@ -753,6 +756,9 @@ $('#btn-right').on('click', function() {
             //Prevent Yazid
             preventYazid = false;
             console.log('Prevent Yazid: ',preventYazid);
+            //Update Confirm
+            confirm = false;
+            console.log('Confirm: ',confirm);
             //if Double Titles ON
             if(doubleTiles){
                 console.log('DOUBLE TILES');
@@ -762,9 +768,6 @@ $('#btn-right').on('click', function() {
                 hint("It's Yazid Double Turn. Launch a new tile.",2);
                 //Update DoubleTiles
                 doubleTiles = false;
-                //Update Confirm
-                confirm = false;
-                console.log('Confirm: ',confirm);
                 //stop function
                 return;
             }
@@ -774,9 +777,6 @@ $('#btn-right').on('click', function() {
             btnLeft("-");
             //Update Hint
             hint("Your turn! Click on the tile you took control OR done with your turn.",2);
-            //Update Confirm
-            confirm = false;
-            console.log('Confirm: ',confirm);
             //Update turn
             turn = "player";
             console.log('Turn: ',turn);
@@ -847,10 +847,10 @@ $('#btn-left').on('click', function() {
             preventYazid = true;
             console.log('Prevent Yazid: ',preventYazid);
             //turn off Confirm
-            confirm = false;
+            confirm = true;
+            console.log('Confirm: ',confirm);
              //Update Btn Left
             btnLeft("-");
-            console.log('Confirm: ',confirm);
         } else if(preventYazid){
             //Alert User prevented on previous turn
             hint("You can't prevent Yazid in consecutive turns, accept tile.",3);
