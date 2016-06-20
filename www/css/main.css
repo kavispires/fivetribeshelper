@@ -146,7 +146,11 @@ iframe {
   }
 
   .btn-negative {
-    background: #F15959;
+    background: #F15959 !important;
+  }
+
+  .btn-disabled {
+    background: #D7D2C9 !important;
   }
 
 /* ==========================================================================
@@ -476,22 +480,36 @@ iframe {
   }
 }
 
-.solo-cell-yazid {
+.solo-cell-yazid,
+.solo-hint-yazid {
   background: #F159BA;
 }
 
-.solo-cell-player {
+.solo-cell-player,
+.solo-hint-player {
   background: #06918D;
+}
+
+.solo-cell-chasm,
+.solo-hint-chasm {
+  background: #231E1D;
 }
 
 .solo-hint {
   width: 100vw;
-  height: 5vh;
+  min-height: 3vh;
   position: fixed;
-  bottom: 0;
-  background: #F15959;
-  color: #fff;
+  left: 0;
+  right: 0;
+  bottom: 8vh;
   z-index: 15;
+  font-size: 24px;
+  line-height: 3vh;
+  color: #fff;
+}
+
+.solo-hint-alert {
+  background: #F15959;
 }
 
 .screen-2 .icon {

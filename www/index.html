@@ -618,6 +618,7 @@
 
 
         </div><!-- /screen -->
+
         <div class="screen screen-2" id="solitaire">
 
             <h1>Solitaire <span class="icon bgicon-info-circle" id="instructions"></span></h1>
@@ -646,19 +647,19 @@
             </div><!-- /instruction -->
             <button class="btn btn-alt" id="restart">Restart</button>
             <div class="solo-start">
-               <button class="btn btn-primary solo-start-btn" id="base">Base</button>
-               <button class="btn btn-2 btn-primary solo-start-btn"  id="expansion">Base+Expansion</button>
-           </div>
+                <button class="btn btn-primary solo-start-btn" id="base">Base</button>
+                <button class="btn btn-2 btn-primary solo-start-btn"  id="expansion">Base+Expansion</button>
+            </div>
+            <div id="solo-game">
+                <h3>Outbid Cost: <span id="cost">0</span></h3>
+                <div id="solo-grid"></div>
+                <div class="solo-hint"></div>
+                <button class="btn btn-2 btn-alt btn-disabled" id="btn-left">-</button>
+                <button class="btn btn-2 btn-primary" id="btn-right">-</button>
+            </div>
+            <button class="btn btn-primary" id="solo-done">Done</button>
 
-           <div id="solo-game">
-            <h3>Outbid Cost: <span id="cost">0</span></h3>
-            <div id="solo-grid"></div>
-            <button class="btn btn-2 btn-negative" id="outbid">Prevent Yazid</button>
-            <button class="btn btn-2 btn-primary" id="nexttile">Next Tile</button>
-        </div>
-        <button class="btn btn-primary" id="solo-done">Done</button>
-        
-    </div><!-- /screen -->
+        </div><!-- /screen -->
 
 
     <div class="screen screen-3" id="rules">
