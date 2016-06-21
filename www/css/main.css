@@ -134,6 +134,7 @@ iframe {
     -webkit-border-radius: 10px;
     background: #b09d78;
     border: 0;
+    font-size: .75em;
   }
 
   .btn-2 {
@@ -311,7 +312,7 @@ iframe {
   }
 
   .col-total {
-    line-height: calc(6.25vh - 10px);
+    line-height: 6.25vh;
   }
 
   .col-categories {
@@ -381,7 +382,7 @@ iframe {
   .total {
     font-weight: 700;
     font-size: 32px;
-    line-height: calc(6.25vh - 10px);
+    line-height: 6.25vh;
   }
 
   .nav {
@@ -521,15 +522,20 @@ iframe {
     -webkit-font-smoothing: antialiased;
 }
 .instructions {
-  width: 90vw;
-  height: 60vh;
+  width: 80vw;
+  padding: 5vw;
+  background: #D8D3CB;
+  height: calc(60vh - 10vw);
   overflow-y: scroll;
   margin: 0 auto;
   margin-bottom: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 
 .instructions * {
-  text-align: left
+  text-align: left;
+  font-size: 16px;
 }
 
 .instructions h3 {

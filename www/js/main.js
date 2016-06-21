@@ -121,7 +121,7 @@ $('#clear').on('click', function() {
     $('.number').val('');
     $('.add-button').text('+');
     $('.total').text('000');
-    $('#popup-djinns *').removeAttr('checked');
+    $('#popup-djinns *').removeArrttr('checked');
     for (var i = 0; i < colors.length; i++) {
         var j = playerList[colors[i]];
         j.jaa = false;
@@ -235,7 +235,7 @@ $('.clear-djinns').on('click', function() {
 
 //Clear Djinns
 $('#clear-djinns').on('click', function() {
-    $('#popup-djinns *').removeAttr('checked');
+    $('#popup-djinns *').removeArrttr('checked');
     $('#popup-djinns .number').val(0);
 });
 
@@ -591,7 +591,8 @@ var expansion = false,
     preventYazid = false,
     yazidCost = [],
     yazidTile = null,
-    yourTile = null;
+    yourTile = null,
+    chasm = null;
 
 //Restart Function
 function soloRestart() {
@@ -599,12 +600,19 @@ function soloRestart() {
     $('#restart').fadeOut(200);
     $('#solo-game').fadeOut(200);
     $('#solo-done').fadeOut(200);
-    cpu = [];
+    expansion = false;
+    allTiles = [];
+    turn = null;
+    confirm = false;
+    prevHint = '';
+    active = null;
+    doubleTiles;
     cpuplay = [];
-    active = null,
-        preventYazid = false,
-        yazid = null,
-        yazidCost = [];
+    preventYazid = false;
+    yazidCost = [];
+    yazidTile = null;
+    yourTile = null;
+    chasm = null;
     $('#cost').text('?');
     $('#solo-grid').text('');
     $('.screen-2 h1').animate({
@@ -685,7 +693,9 @@ $('#btn-right').on('click', function() {
         //If chasm is already clicked
         if(confirm){
             //Remove from array
-            removeA(allTiles, active);
+            removeArr(allTiles, active);
+            //Update chasm tile number
+            chasm = active;
             //Update Hint
             hint("Yazid's turn: Click on Yazid Tile.",1);
             //Update Turn
@@ -718,6 +728,8 @@ $('#btn-right').on('click', function() {
             active = parseInt(random);
             //Outbid Cost
             outbidCost();
+            //If active is chasm, consider it doubleTile
+            if(chasm == active) doubleTile = true;
             //Add blinking class to tile
             $('#cl-' + active).addClass('solo-cell-active');
             console.log('Active Tile: ',active);
@@ -732,7 +744,7 @@ $('#btn-right').on('click', function() {
             if(preventYazid) {
                 hint("You must accept this tile, click continue.",1);
             } else {
-                hint("You may prevent Yazid by paying Outbid OR click continue.",1);
+                hint("You may prevent Yazid by paying Outbid cost OR click continue.",1);
             }
             //Update Confirm
             confirm = true;
@@ -746,7 +758,7 @@ $('#btn-right').on('click', function() {
                     ///Add Yazid Class to Tile & Remove tile from clicable options
                     $('#cl-' + active).addClass('solo-cell-yazid').removeClass('solo-all');
                     //Remove number from allTiles array
-                    removeA(allTiles, active);
+                    removeArr(allTiles, active);
                 }
             }
             //Remove Blinking Class
@@ -774,7 +786,7 @@ $('#btn-right').on('click', function() {
             //Update Btn Label
             btnRight("Done with your turn");
             //Update Btn Label 2
-            btnLeft("-");
+            btnLeft("Special Situations");
             //Update Hint
             hint("Your turn! Click on the tile you took control OR done with your turn.",2);
             //Update turn
@@ -794,7 +806,7 @@ $('#btn-right').on('click', function() {
                 ///Add Yazid Class to Tile & Remove tile from clicable options
                 $('#cl-' + active).removeClass('solo-cell-active').addClass('solo-cell-yazid').removeClass('solo-all');
                 //Remove number from allTiles array
-                removeA(allTiles, active);
+                removeArr(allTiles, active);
             }
             //Update Hint
             hint("Yazid's turn: Click on Yazid Tile.",1);
@@ -828,8 +840,6 @@ $('#btn-right').on('click', function() {
             //stop function
             return;
         }
-        //CONFIRM OFF
-        console.log('HERE!');
     }     
 });
 
@@ -859,8 +869,10 @@ $('#btn-left').on('click', function() {
             hint("You can't prevent Yazid now.",3,'alert');
         }
     }
-    if (turn == 'player' && confirm){
-        //add active
+    if (turn == 'player'){
+        //add special situations
+        ///more than one tile taken control this turn
+        ///tempest talisman move camel somewhere else
     }
 });
 
@@ -997,7 +1009,7 @@ function btnLeft(label){
     }
 }
 
-function removeA(arr) {
+function removeArr(arr) {
     var what, a = arguments, L = a.length, ax;
     while (L > 1 && arr.length) {
         what = a[--L];
