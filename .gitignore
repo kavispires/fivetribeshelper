@@ -3,12 +3,12 @@ _BUILDER/
 *.DS_Store
 */.DS_Store
 
-www/index-backup.html
-www/index-beforeknockout.html
-www/js/main - Copy.js
-www/js/main-backup.js
-www/js/to refactor (remaining).js
-www/css/main - backup 11-07.css
-www/css/main - backup.css
-www/css/main - Copy.css
-www/css/scorer-backup.css
+index-backup.html
+index-beforeknockout.html
+js/main - Copy.js
+js/main-backup.js
+js/to refactor (remaining).js
+css/main - backup 11-07.css
+css/main - backup.css
+css/main - Copy.css
+css/scorer-backup.css
