@@ -156,14 +156,9 @@
   }
 
   .portraitorientation .content {
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
     text-align: center;
-    transform: translateY(30%);
-    -ms-transform: translateY(30%);
-    -moz-transform: translateY(30%);
-    -webkit-transform: translateY(30%);
-    -o-transform: translateY(30%);
     color: #fff;   
   }
 
