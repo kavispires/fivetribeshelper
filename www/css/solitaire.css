@@ -1,0 +1,111 @@
+
+ /* ==========================================================================
+   Solitaire
+   ========================================================================== */
+
+.screen-2 {
+  text-align: center;
+}
+
+.solo-start {
+  display: inline-block;
+}
+
+#solo-grid {
+  max-width: 78vw;
+  max-height: 78vh;
+  background: #ede3c5;
+  display: inline-block;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.solo-cell {
+  min-width: calc((90vw / 6) - 30px);
+  max-width: calc((90vw / 6) - 30px);
+  min-height: calc((90vw / 6) - 30px);
+  max-height: calc((90vw / 6) - 30px);
+  background: #d3bd79;
+  margin: 5px;
+  display: inline-block;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  line-height: calc((90vw / 6) - 30px);
+}
+
+.solo-cell-active {
+  color: #fff;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0% {
+    background: rgba(255,65,54,1);
+  }
+  80% {
+    background: rgba(255,65,54,.25);
+  }
+  100% {
+    background: rgba(255,65,54,1);
+  }
+}
+
+.solo-cell-prev {
+  background: #998544;
+}
+
+.screen-2 .icon {
+    display: inline;
+    font-size: 36px;
+    line-height: 1;
+    text-decoration: none;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+}
+.instructions {
+  width: 90vw;
+  height: 60vh;
+  overflow-y: scroll;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.instructions * {
+  text-align: left
+}
+
+.instructions h3 {
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.instructions .important {
+  font-style: italic;
+  color: #ff0000;
+}
+
+.instructions .yellow {
+  color: yellow;
+}
+
+.instructions .red {
+  color: red;
+}
+
+.instructions .green {
+  color: green;
+}
+
+.instructions .blue {
+  color: blue;
+}
+
+.instructions .purple {
+  color: purple;
+}
+
+.instructions .grey {
+  color: grey;
+}

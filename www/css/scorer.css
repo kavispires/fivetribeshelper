@@ -1,0 +1,196 @@
+/* ==========================================================================
+   Scorer
+   ========================================================================== */
+
+  #screen-1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .columns,
+  .controls,
+  .blank {
+    flex: 1;
+  }
+
+  .columns {
+    width: 100%;
+    height: 78vh;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .controls {
+    max-width: 80%;
+    height: 8vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20vw;
+  }
+
+  .col,
+  .col-header,
+  .col-body {
+    width: 20vw;
+    max-width: 20vw;
+  }
+
+  .col {
+    flex: 1;
+  }
+
+  .col * {
+    font-size: 32px;
+  }
+
+  .col-header {
+    height: 8vh;
+    max-height: 8vh;
+    padding: 10px;
+    display: table-cell;
+    vertical-align: bottom;
+  }
+
+  .col-body {
+    height: 70vh;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-body-background {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+
+  .col-body-background:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .col-body-background:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .col-cell {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .col-cell input,
+  .col-cell .total {
+    background: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: 0;
+  }
+
+  .col-cell input:focus {
+    outline: none;
+  }
+
+  .col-total {
+    font-weight: bold;
+    margin: 0 auto;
+  }
+
+  .col-cell .total {
+    font-weight: bold;
+    line-height: 6vh;
+  }
+
+  .col-blue {
+    order: 1;
+  }
+
+  .col-pink {
+    order: 2;
+  }
+
+  .col-black {
+    order: 3;
+  }
+
+  .col-orange {
+    order: 4;
+  }
+
+  .col-blue .col-body-background {
+    background: #cddfe4;
+  }
+
+  .col-pink .col-body-background {
+    background: #f7deea;
+  }
+
+  .col-black .col-body-background {
+    background: #d6d9d9;
+  }
+
+  .col-orange .col-body-background {
+    background: #f0dbcc;
+  }
+
+  .t-blue {
+    background: #90D4D1;
+    border-radius: 10px;
+  }
+
+  .t-pink {
+    background: #F7B2D3;
+    border-radius: 10px;
+  }
+
+  .t-black {
+    background: #888989;
+    border-radius: 10px;
+  }
+
+  .t-orange {
+    background: #F0BB92;
+    border-radius: 10px;
+  }
+
+/* =====================
+   Pop-Ups
+   ===================== */
+
+  .popup {
+    position: absolute !important;
+    top: 7vh;
+    right: 0;
+    left: 0;
+    width: 100%;
+    min-width: 100vw;
+    max-width: 100vw;
+    min-height: 86vh;
+    max-height: 86vh;
+    /*-webkit-backface-visibility: hidden;
+            backface-visibility: hidden;*/
+    z-index: 50;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .popup .columns {
+    height: auto;
+  }
+
+  #popup-djinns .col-body {
+    height: 48vh;
+  }
+
+  #popup-items .col-body {
+    height: 18vh;
+  }
+
+  #popup-merch .col-body {
+    height: 63vh;
+  }
