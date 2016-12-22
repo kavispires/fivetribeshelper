@@ -8,21 +8,3 @@ $(document).ready(function(){
     }, 2000);
 
 });
-
-/* ============================
-  SPLASH SCREEN
-  ============================ */
-
-$(window).on( "orientationchange", function( event ) {
-	orientation();
-});
-
-function orientation() {
-  	if(window.innerWidth > window.innerHeight){  	
-    	$('.portraitorientation').show();
-	} else {
-        $('.portraitorientation').fadeOut('slow');
-	}
-}
-
-orientation();

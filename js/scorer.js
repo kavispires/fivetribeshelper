@@ -1,59 +1,59 @@
 var model = {
-  colorList: ['blue', 'pink', 'black', 'orange']
+    colorList: ['blue', 'pink', 'black', 'orange']
 };
 
 var Player = function(color, index) {
-  this.color = color;
-  this.index = index;
-  this.rank = 0;
-  this.coins = ko.observable();
-  this.viziers = ko.observable();
-  this.artisans = ko.observable();
-  this.elders = ko.observable();
+    this.color = color;
+    this.index = index;
+    this.rank = 0;
+    this.coins = ko.observable();
+    this.viziers = ko.observable();
+    this.artisans = ko.observable();
+    this.elders = ko.observable();
 
-  this.djinnstotal = ko.observable('+');
-  this.djinns = ko.observable();
-  this.thieves = ko.observable();
+    this.djinnstotal = ko.observable('+');
+    this.djinns = ko.observable();
+    this.thieves = ko.observable();
 
-  this.tiles = ko.observable();
-  this.trees = ko.observable();
-  this.palaces = ko.observable();
+    this.tiles = ko.observable();
+    this.trees = ko.observable();
+    this.palaces = ko.observable();
 
-  this.items = ko.observable('+');
-  this.items_jewelry = ko.observable();
-  this.items_treasures = ko.observable();
-  this.items_crowns = ko.observable();
-  this.items_quantity = ko.observable(0);
+    this.items = ko.observable('+');
+    this.items_jewelry = ko.observable();
+    this.items_treasures = ko.observable();
+    this.items_crowns = ko.observable();
+    this.items_quantity = ko.observable(0);
 
-  this.merch = ko.observable('+');
-  this.merch_fish = ko.observable();
-  this.merch_wheat = ko.observable();
-  this.merch_pottery = ko.observable();
-  this.merch_spices = ko.observable();
-  this.merch_papyrus = ko.observable();
-  this.merch_fabric = ko.observable();
-  this.merch_ivory = ko.observable();
-  this.merch_gems = ko.observable();
-  this.merch_gold = ko.observable();
+    this.merch = ko.observable('+');
+    this.merch_fish = ko.observable();
+    this.merch_wheat = ko.observable();
+    this.merch_pottery = ko.observable();
+    this.merch_spices = ko.observable();
+    this.merch_papyrus = ko.observable();
+    this.merch_fabric = ko.observable();
+    this.merch_ivory = ko.observable();
+    this.merch_gems = ko.observable();
+    this.merch_gold = ko.observable();
 
-  this.jaafar = ko.observable(false);
-  this.shamhat = ko.observable(false);
-  this.haurvatat = ko.observable(false);
-  this.geb = ko.observable(false);
-  this.ptah = ko.observable(false);
+    this.jaafar = ko.observable(false);
+    this.shamhat = ko.observable(false);
+    this.haurvatat = ko.observable(false);
+    this.geb = ko.observable(false);
+    this.ptah = ko.observable(false);
 
-  this.total = ko.observable('?');
+    this.total = ko.observable('?');
 };
 
 var ViewModel = function() {
-  var self = this;
+    var self = this;
 
-  this.playerList = ko.observableArray([]);
+    this.playerList = ko.observableArray([]);
 
-  this.init = function() {
+    this.init = function() {
         // Populate playerList
         self.populatePlayerList();
-     };
+    };
 
     // Populate playerList with Player
     this.populatePlayerList = function() {
@@ -61,51 +61,50 @@ var ViewModel = function() {
         self.playerList([]);
         // Then populate
         model.colorList.forEach(function(color, index) {
-         self.playerList.push(new Player(color, index));
-      });
-     };
+            self.playerList.push(new Player(color, index));
+        });
+    };
 
-     this.completeReset = function(data) {
-      self.playerList().forEach(function(player) {
-         player.coins('');
-         player.viziers('');
-         player.artisans('');
-         player.elders('');
+    this.completeReset = function(data) {
+        self.playerList().forEach(function(player) {
+            player.coins('');
+            player.viziers('');
+            player.artisans('');
+            player.elders('');
 
-         player.tiles('');
-         player.trees('');
-         player.palaces('');
+            player.tiles('');
+            player.trees('');
+            player.palaces('');
 
-         player.total('?');
-      });
-      self.resetDjinnsPopup();
-      self.resetItemsPopup();
-      self.resetMerchPopup();
-   };
+            player.total('?');
+        });
+        self.resetDjinnsPopup();
+        self.resetItemsPopup();
+        self.resetMerchPopup();
+    };
 
-   this.displayDjinnsPopup = ko.observable(false);
-   this.openDjinnsPopup = function() {
+    this.displayDjinnsPopup = ko.observable(false);
+    this.openDjinnsPopup = function() {
         // Show Popup
         self.displayDjinnsPopup(true);
-     };
+    };
 
-     this.resetDjinnsPopup = function() {
+    this.resetDjinnsPopup = function() {
         // Loop through players and reset
         // TODO
         self.playerList().forEach(function(player) {
-         player.djinnstotal('+');
-         player.djinns('');
-         player.thieves('');
-         player.jaafar(false);
-         player.shamhat(false);
-         player.haurvatat(false);
-         player.geb(false);
-         player.ptah(false);
-      });
+            player.djinnstotal('+');
+            player.djinns('');
+            player.thieves('');
+            player.jaafar(false);
+            player.shamhat(false);
+            player.haurvatat(false);
+            player.geb(false);
+            player.ptah(false);
+        });
+    };
 
-     };
-
-     this.confirmDjinnsPopup = function() {
+    this.confirmDjinnsPopup = function() {
         // Loop through players
         self.playerList().forEach(function(player) {
             // Convert to Number
@@ -114,29 +113,29 @@ var ViewModel = function() {
             player.thieves(BG.notNumber(player.thieves()));
             // Add Djinns and Thives Points to Djinns Total
             player.djinnstotal(player.djinns() + player.thieves());
-         });
+        });
         // Close Popup
         self.displayDjinnsPopup(false);
-     };
+    };
 
-     this.displayItemsPopup = ko.observable(false);
-     this.openItemsPopup = function() {
+    this.displayItemsPopup = ko.observable(false);
+    this.openItemsPopup = function() {
         // Show Popup
         self.displayItemsPopup(true);
-     };
+    };
 
-     this.resetItemsPopup = function() {
+    this.resetItemsPopup = function() {
         // Loop through players and reset
         self.playerList().forEach(function(player) {
-         player.items('+');
-         player.items_jewelry('');
-         player.items_treasures('');
-         player.items_crowns('');
-         player.items_quantity(0);
-      });
-     }
+            player.items('+');
+            player.items_jewelry('');
+            player.items_treasures('');
+            player.items_crowns('');
+            player.items_quantity(0);
+        });
+    };
 
-     this.confirmItemsPopup = function() {
+    this.confirmItemsPopup = function() {
         // Loop through players
         self.playerList().forEach(function(player) {
             // Convert to Number
@@ -151,34 +150,34 @@ var ViewModel = function() {
             player.items(total);
             // Update items_quatity
             player.items_quantity(player.items_jewelry() + player.items_treasures() + player.items_crowns());
-         });
+        });
         // Close Popup
         self.displayItemsPopup(false);
-     }
+    };
 
-     this.displayMerchPopup = ko.observable(false);
-     this.openMerchPopup = function() {
+    this.displayMerchPopup = ko.observable(false);
+    this.openMerchPopup = function() {
         // Show Popup
         self.displayMerchPopup(true);
-     };
+    };
 
-     this.resetMerchPopup = function() {
+    this.resetMerchPopup = function() {
         // Loop through players and reset
         self.playerList().forEach(function(player) {
-         player.merch('+');
-         player.merch_fish('');
-         player.merch_wheat('');
-         player.merch_pottery('');
-         player.merch_spices('');
-         player.merch_papyrus('');
-         player.merch_fabric('');
-         player.merch_ivory('');
-         player.merch_gems('');
-         player.merch_gold('');
-      });
-     }
+            player.merch('+');
+            player.merch_fish('');
+            player.merch_wheat('');
+            player.merch_pottery('');
+            player.merch_spices('');
+            player.merch_papyrus('');
+            player.merch_fabric('');
+            player.merch_ivory('');
+            player.merch_gems('');
+            player.merch_gold('');
+        });
+    };
 
-     this.confirmMerchPopup = function() {
+    this.confirmMerchPopup = function() {
         // Loop through players
         self.playerList().forEach(function(player) {
             // Convert to Number
@@ -224,37 +223,37 @@ var ViewModel = function() {
                 merch = BG.removeZeros(merch);
                 //Break if any value is <1
                 if (merch[0] < 1) {
-                   break;
+                    break;
                 }
                 //add points based on length of array
                 sum += points[merch.length];
                 //Decrease -1 from each item of array
                 merch = merch.map(function(element) {
-                   return --element;
+                    return --element;
                 });
                 //fix when multiples of one single kind of merch
                 if (merch.length == 1 && merch[0] > 0) i++;
-             }
+            }
 
             // Update merch total
             player.merch(sum);
 
-         });
+        });
         // Close Popup
         self.displayMerchPopup(false);
-     }
+    };
 
-     this.completeScore = function() {
+    this.completeScore = function() {
 
-       var allViziers = [];
-       var allArtisans = [];
-       var numPlayers = 0;
-       var totals = [];
+        var allViziers = [];
+        var allArtisans = [];
+        var numPlayers = 0;
+        var totals = [];
 
         //for each player, calculate score
         self.playerList().forEach(function(player) {
-         var points = 0;
-         var total = 0;
+            var points = 0;
+            var total = 0;
 
             // Get Coins
             points = BG.notNumber(player.coins());
@@ -264,29 +263,29 @@ var ViewModel = function() {
             points = BG.notNumber(player.viziers());
             player.viziers(points);
             if (player.jaafar()) {
-              console.log(player.jaafar());
-              total += points * 3;
-           } else {
-              total += points;
-           }
+                console.log(player.jaafar());
+                total += points * 3;
+            } else {
+                total += points;
+            }
             // Get Artisans
             points = BG.notNumber(player.artisans());
             player.artisans(points);
-            if (player.haurvatat()) {
-              console.log(player.haurvatat());
-              total += points * 4;
-           } else {
-              total += points * 2;
-           }
+            if (player.ptah()) {
+                console.log(player.ptah());
+                total += points * 4;
+            } else {
+                total += points * 2;
+            }
             // Get Elders
             points = BG.notNumber(player.elders());
             player.elders(points);
             if (player.shamhat()) {
-              console.log(player.shamhat());
-              total += points * 4;
-           } else {
-              total += points * 2;
-           }
+                console.log(player.shamhat());
+                total += points * 4;
+            } else {
+                total += points * 2;
+            }
             // Get Tiles
             points = BG.notNumber(player.tiles());
             player.tiles(points);
@@ -295,11 +294,11 @@ var ViewModel = function() {
             points = BG.notNumber(player.trees());
             player.trees(points);
             if (player.haurvatat()) {
-              console.log(player.haurvatat());
-              total += points * 5;
-           } else {
-              total += points * 3;
-           }
+                console.log(player.haurvatat());
+                total += points * 5;
+            } else {
+                total += points * 3;
+            }
             // Get Palaces
             points = BG.notNumber(player.palaces());
             player.palaces(points);
@@ -311,9 +310,9 @@ var ViewModel = function() {
             if (isNaN(player.items())) player.items(0);
             total += player.items();
             if (player.geb()) {
-              console.log(player.geb());
-              total += player.items_quantity() * 3;
-           }
+                console.log(player.geb());
+                total += player.items_quantity() * 3;
+            }
             // Get Items
             if (isNaN(player.merch())) player.merch(0);
             total += player.merch();
@@ -325,7 +324,7 @@ var ViewModel = function() {
             allArtisans.push(player.artisans());
             // Add to numPlayers if player has at least 1 point
             if (player.total() > 0) numPlayers++;
-         });
+        });
 
         // Prepare Viziers Bonus
         // Sort Array
@@ -334,10 +333,10 @@ var ViewModel = function() {
         allViziers = BG.removeZeros(allViziers);
         // Add Zeros to allViziers of length is less than number of players
         for (var i = 1; i <= numPlayers; i++) {
-         if (allViziers.length < numPlayers) {
-           allViziers.push(0);
+            if (allViziers.length < numPlayers) {
+                allViziers.push(0);
+            }
         }
-     }
         // Sort Array again, now that 0 for players in the game but with 0 vizires
         allViziers = BG.sortArray(allViziers);
 
@@ -349,63 +348,65 @@ var ViewModel = function() {
         allArtisans = BG.reverseArray(allArtisans);
         // If first item and second item are the same, clear array, meaning if two players have the same max number of Artisans, the bonus is invalid.
         if (allArtisans.length > 1) {
-         if (allArtisans[0] === allArtisans[1]) {
-           allArtisans = [];
+            if (allArtisans[0] === allArtisans[1]) {
+                allArtisans = [];
+            }
         }
-     }
         // Calculate Artisans Bonus (1 vp only for the player who has most artisans)
+
 
         // For each player, calculate Bonuses
         self.playerList().forEach(function(player) {
-         var points;
-            // Viziers Bonuses (10 points for each other player with strickly less viziers than current player)
+            var points;
+            // Viziers Bonuses (10 points for each other player with strictly less viziers than current player)
             if (player.viziers() > 0) {
-              for (var i = 0; i < allViziers.length; i++) {
-                if (player.viziers() == allViziers[i]) {
-                  break;
-               } else {
-                  points = player.total() + 10;
-                  player.total(points);
-               }
+                for (var i = 0; i < allViziers.length; i++) {
+                    if (player.viziers() == allViziers[i]) {
+                        break;
+                    } else {
+                        points = player.total() + 10;
+                        player.total(points);
+                    }
+                }
             }
-         }
-         if (player.artisans() > 0 && allArtisans.length > 1) {
-           if (player.artisans() === allArtisans[0]) {
-             points = player.total() + player.artisans();
-             player.total(points);
-          }
-       }
+            // Artisans Bonus (+1 extra poin per artisan for the player with strictly more artisans in the game)
+            if (player.artisans() > 0 && allArtisans.length > 1) {
+                if (player.artisans() === allArtisans[0]) {
+                    points = player.total() + player.artisans();
+                    player.total(points);
+                }
+            }
             // Populate Totals for ranking
             totals.push(player.total());
-         });
+        });
 
         // Calculate Ranking
         // Reverse Array
-         totals = BG.reverseArray(totals);
-         // Loop through players and update rank
-         self.playerList().forEach(function(player){
-            for(var i = 0; i < totals.length; i++){
-               if(player.total() == totals[i]){
-                  player.rank = i + 1;
-               }
+        totals = BG.reverseArray(totals);
+        // Loop through players and update rank
+        self.playerList().forEach(function(player) {
+            for (var i = 0; i < totals.length; i++) {
+                if (player.total() == totals[i]) {
+                    player.rank = i + 1;
+                }
             }
             // Move column
             var $target = $('.col-' + player.color);
             $target.css('order', player.rank);
-         });
+        });
 
-     };
+    };
 
-     self.init();
-  };
+    self.init();
+};
 
 // Apply Bindings to View
 $(document).ready(function() {
-  ko.applyBindings(new ViewModel());
+    ko.applyBindings(new ViewModel());
 
-  ko.bindingHandlers.numeric = {
-    init: function(element, valueAccessor) {
-      $(element).on("keydown", function(event) {
+    ko.bindingHandlers.numeric = {
+        init: function(element, valueAccessor) {
+            $(element).on("keydown", function(event) {
                 // Allow: backspace, delete, tab, escape, and enter
                 if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 ||
                     // Allow: Ctrl+A
@@ -415,14 +416,17 @@ $(document).ready(function() {
                     // Allow: home, end, left, right
                     (event.keyCode >= 35 && event.keyCode <= 39)) {
                     // let it happen, don't do anything
-                 return;
-              } else {
+                    return;
+                } else {
                     // Ensure that it is a number and stop the keypress
                     if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
-                     event.preventDefault();
-                  }
-               }
+                        event.preventDefault();
+                    }
+                }
             });
-   }
-};
+        }
+    };
+
+    // Just for debugging TO-DO: delete this
+    vm = ko.dataFor(document.body);
 });
