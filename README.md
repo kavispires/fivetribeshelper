@@ -5,7 +5,8 @@ _in development_
 This is a scorer for the board game Five Tribes: The Djinns of Naqala by Bruno Cathala and its expansions The Artisans of Naqala, and the Thives of Naqala.
 
 **This application is designed for phones and tablets in Portrait mode only.**
-**To visualize this application on your desktop browser, open the link below, turn on Chrome Dev Tools (Cmd + Opt + I / Ctrl + Shift + I), Toggle Device Toolbar (Cmd + Shift + M), and select a portrait mode.
+
+_**To visualize this application on your desktop browser, open the link below, turn on Chrome Dev Tools (Cmd + Opt + I / Ctrl + Shift + I), Toggle Device Toolbar (Cmd + Shift + M), and select a portrait mode.**_
 
 For a live version of this application, click [here](https://kavispires.github.io/fivetribeshelper).
 
